@@ -255,7 +255,8 @@ async function GetData() {
         method: "GET",
         headers: {
             "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
-        }
+        },
+        mode: "no cors"
     });
     fwRes = await fwRes.json();
     listings = fwRes.results;
@@ -264,7 +265,8 @@ async function GetData() {
         method: "GET",
         headers: {
             "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
-        }
+        },
+        mode: "no cors"
     });
     fwRes = await fwRes.json();
     remoteList = fwRes.results;
