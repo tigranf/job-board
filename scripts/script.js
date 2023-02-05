@@ -208,16 +208,18 @@ function UpdateList() {
 }
 
 async function GetData() {
-    // IP api call
-    let ipRes = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=ad0411d746d44c21b2c6c4b9a62156fg`);
-    ipRes = await ipRes.json();
+    const nyc = {
+        city: 'New York',
+        latitude: 40.7127,
+        longitude: -74.0059
+    };
     if (!ipLoaded) {
-        marker.setLatLng([parseFloat(ipRes.latitude), parseFloat(ipRes.longitude)]);
+        marker.setLatLng([nyc.latitude, nyc.longitude]);
         currentCoords = {
             lat: marker.getLatLng().lat,
             lng: marker.getLatLng().lng
         };
-        currentCity = ipRes.city;
+        currentCity = nyc.city;
     }
     ipLoaded = true;
 
@@ -249,7 +251,7 @@ async function GetData() {
     }
 
     // Findwork api call
-    fwRes = await fetch(`http://localhost:8010/proxy/jobs/?location=${currentCity}`, {
+    fwRes = await fetch(`http://findwork.dev/jobs/?location=${currentCity}`, {
         method: "GET",
         headers: {
             "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
@@ -258,7 +260,7 @@ async function GetData() {
     fwRes = await fwRes.json();
     listings = fwRes.results;
 
-    fwRes = await fetch(`http://localhost:8010/proxy/jobs/?location=&remote=true&search=javascript&employment_type=full+time&order_by=relevance`, {
+    fwRes = await fetch(`http://findwork.dev/jobs/?location=&remote=true&search=javascript&employment_type=full+time&order_by=relevance`, {
         method: "GET",
         headers: {
             "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
