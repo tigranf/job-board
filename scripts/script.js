@@ -254,9 +254,9 @@ async function GetData() {
     fwRes = await fetch(`https://findwork.dev/jobs/?location=${currentCity}`, {
         method: "GET",
         headers: {
-            "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
+            "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666",
+            mode: "no cors"
         },
-        mode: "no cors"
     });
     fwRes = await fwRes.json();
     listings = fwRes.results;
@@ -264,9 +264,9 @@ async function GetData() {
     fwRes = await fetch(`https://findwork.dev/jobs/?location=&remote=true&search=javascript&employment_type=full+time&order_by=relevance`, {
         method: "GET",
         headers: {
-            "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
+            "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666",
+            mode: "no cors"
         },
-        mode: "no cors"
     });
     fwRes = await fwRes.json();
     remoteList = fwRes.results;
