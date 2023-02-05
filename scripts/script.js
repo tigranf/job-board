@@ -251,7 +251,7 @@ async function GetData() {
     }
 
     // Findwork api call
-    fwRes = await fetch(`http://findwork.dev/jobs/?location=${currentCity}`, {
+    fwRes = await fetch(`https://findwork.dev/jobs/?location=${currentCity}`, {
         method: "GET",
         headers: {
             "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
@@ -260,7 +260,7 @@ async function GetData() {
     fwRes = await fwRes.json();
     listings = fwRes.results;
 
-    fwRes = await fetch(`http://findwork.dev/jobs/?location=&remote=true&search=javascript&employment_type=full+time&order_by=relevance`, {
+    fwRes = await fetch(`https://findwork.dev/jobs/?location=&remote=true&search=javascript&employment_type=full+time&order_by=relevance`, {
         method: "GET",
         headers: {
             "Authorization": "Token d954c3c2ec05bfaaefc4a2ba4681d08737622666"
